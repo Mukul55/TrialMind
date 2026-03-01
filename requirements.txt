@@ -1,0 +1,47 @@
+# Core
+fastapi==0.111.0
+uvicorn==0.30.1
+streamlit==1.35.0
+pydantic==2.7.1
+
+# Database
+psycopg2-binary==2.9.9          # PostgreSQL for AACT
+chromadb==0.5.0                  # Vector store
+sqlalchemy==2.0.30
+
+# ML / Embeddings
+sentence-transformers==3.0.0
+torch==2.3.0
+transformers==4.41.0
+rank-bm25==0.2.2                 # BM25 keyword search
+
+# Data Processing
+pandas==2.2.2
+numpy==1.26.4
+dask==2024.5.0                   # For large AACT dataset processing
+pdfplumber==0.11.0               # PDF text extraction
+beautifulsoup4==4.12.3
+lxml==5.2.2
+requests==2.32.2
+aiohttp==3.9.5                   # Async HTTP
+tqdm==4.66.4
+
+# NLP
+spacy==3.7.4
+scispacy==0.5.4                  # Biomedical NLP
+# After pip install: python -m spacy download en_core_sci_lg
+
+# Utilities
+python-dotenv==1.0.1
+tenacity==8.3.0                  # Retry logic with exponential backoff
+loguru==0.7.2
+reportlab==4.2.0                 # PDF generation
+openpyxl==3.1.4
+python-multipart==0.0.9
+
+# Anthropic
+anthropic>=0.28.0
+
+# Evaluation
+rouge-score==0.1.2
+scikit-learn==1.5.0

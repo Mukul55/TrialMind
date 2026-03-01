@@ -1,0 +1,225 @@
+{
+  "version": "1.0",
+  "created": "2024-01-01",
+  "description": "Golden test set for TrialMind evaluation — 50 queries with known ground truth",
+  "categories": {
+    "sample_size": "Questions about appropriate trial sample sizes and enrollment targets",
+    "endpoint": "Questions about primary endpoint selection and regulatory acceptability",
+    "eligibility": "Questions about inclusion/exclusion criteria and their impact on recruitment",
+    "site": "Questions about site selection, geography, and enrollment rates",
+    "dropout": "Questions about attrition rates and retention strategies",
+    "failure": "Questions about trial failure, termination, and root causes",
+    "general": "General benchmarking questions across multiple dimensions"
+  },
+  "test_cases": [
+    {
+      "id": "ss_001",
+      "category": "sample_size",
+      "query": "What was the typical sample size for Phase 3 trials in non-small cell lung cancer from 2015-2022?",
+      "ground_truth_keywords": ["KEYNOTE-189", "PACIFIC", "IMpower150", "N=", "600", "700"],
+      "expected_nct_examples": ["NCT02142738", "NCT02125461"],
+      "expected_range": {"min_n": 400, "max_n": 1500},
+      "notes": "Major Phase 3 NSCLC trials in immunotherapy era typically enrolled 500-1200 patients"
+    },
+    {
+      "id": "ss_002",
+      "category": "sample_size",
+      "query": "What is the median sample size for Phase 2 HER2-positive breast cancer trials?",
+      "ground_truth_keywords": ["HER2", "breast cancer", "Phase 2", "patients", "N="],
+      "expected_range": {"min_n": 50, "max_n": 500},
+      "notes": "Phase 2 HER2+ breast cancer trials often use 50-300 patients; single-arm ORR designs are common"
+    },
+    {
+      "id": "ss_003",
+      "category": "sample_size",
+      "query": "How many patients are typically enrolled in Phase 3 cardiovascular outcome trials (CVOTs)?",
+      "ground_truth_keywords": ["CVOT", "cardiovascular", "Phase 3", "MACE", "patients"],
+      "expected_range": {"min_n": 3000, "max_n": 20000},
+      "notes": "CVOTs are large trials; EMPA-REG OUTCOME enrolled 7020, LEADER enrolled 9340"
+    },
+    {
+      "id": "ss_004",
+      "category": "sample_size",
+      "query": "What enrollment rates per month are typical for Phase 3 rheumatoid arthritis trials?",
+      "ground_truth_keywords": ["enrollment rate", "rheumatoid arthritis", "patients/month", "Phase 3"],
+      "notes": "RA trials have moderate enrollment rates due to established patient populations"
+    },
+    {
+      "id": "ss_005",
+      "category": "sample_size",
+      "query": "What sample sizes do Phase 2 single-arm oncology trials use for accelerated approval?",
+      "ground_truth_keywords": ["single-arm", "accelerated", "approval", "ORR", "response rate", "Phase 2"],
+      "expected_range": {"min_n": 50, "max_n": 200},
+      "notes": "FDA accelerated approval single-arm trials typically need 50-200 patients with durable ORR"
+    },
+    {
+      "id": "ep_001",
+      "category": "endpoint",
+      "query": "What primary endpoints were used in FDA-approved Phase 3 PD-1 inhibitor trials for NSCLC?",
+      "ground_truth_keywords": ["PFS", "OS", "progression-free survival", "overall survival", "KEYNOTE"],
+      "expected_nct_examples": ["NCT02142738"],
+      "notes": "KEYNOTE-189 used OS+PFS co-primary; KEYNOTE-024 used PFS; CheckMate 227 used OS+PFS"
+    },
+    {
+      "id": "ep_002",
+      "category": "endpoint",
+      "query": "What primary endpoints has FDA accepted for Phase 3 heart failure trials?",
+      "ground_truth_keywords": ["cardiovascular death", "hospitalization", "KCCQ", "composite", "heart failure"],
+      "notes": "FDA accepts composite endpoints of CV death + HF hospitalization; also accepts KCCQ symptom scores"
+    },
+    {
+      "id": "ep_003",
+      "category": "endpoint",
+      "query": "Has pathological complete response been accepted as a primary endpoint for neoadjuvant breast cancer trials?",
+      "ground_truth_keywords": ["pCR", "pathological complete response", "neoadjuvant", "accelerated approval", "breast"],
+      "notes": "FDA accepted pCR for accelerated approval in neoadjuvant BC; requires confirmatory EFS data"
+    },
+    {
+      "id": "ep_004",
+      "category": "endpoint",
+      "query": "What surrogate endpoints are accepted in Phase 3 multiple myeloma trials?",
+      "ground_truth_keywords": ["PFS", "progression-free survival", "MRD", "complete response", "myeloma"],
+      "notes": "PFS accepted; MRD negativity emerging as endpoint; OS historically required"
+    },
+    {
+      "id": "ep_005",
+      "category": "endpoint",
+      "query": "What are typical primary endpoints in Phase 3 diabetes clinical trials?",
+      "ground_truth_keywords": ["HbA1c", "A1c", "cardiovascular", "MACE", "glycemic", "glucose"],
+      "notes": "HbA1c reduction is standard; CVOTs required since 2008 FDA guidance"
+    },
+    {
+      "id": "el_001",
+      "category": "eligibility",
+      "query": "What ECOG performance status requirements are most common in Phase 3 lung cancer trials?",
+      "ground_truth_keywords": ["ECOG", "PS", "performance status", "0-1", "2", "lung cancer"],
+      "notes": "PS 0-1 most common; some trials allow PS 0-2 for broader access; PS 2 exclusion affects enrollment"
+    },
+    {
+      "id": "el_002",
+      "category": "eligibility",
+      "query": "What are common exclusion criteria in Phase 2 Alzheimer's disease trials?",
+      "ground_truth_keywords": ["MMSE", "CDR", "cognitive", "brain", "MRI", "amyloid"],
+      "notes": "Brain imaging requirements, cognitive score thresholds, and prior treatment exclusions common"
+    },
+    {
+      "id": "el_003",
+      "category": "eligibility",
+      "query": "Are brain metastases typically excluded from Phase 3 NSCLC immunotherapy trials?",
+      "ground_truth_keywords": ["brain metastases", "CNS", "NSCLC", "exclusion", "stable", "treated"],
+      "notes": "Many trials initially excluded; trend toward allowing stable treated brain metastases"
+    },
+    {
+      "id": "el_004",
+      "category": "eligibility",
+      "query": "What PD-L1 expression cutoffs are most commonly used as inclusion criteria in NSCLC trials?",
+      "ground_truth_keywords": ["PD-L1", "TPS", "1%", "50%", "CPS", "expression", "NSCLC"],
+      "notes": "KEYNOTE-024 used PD-L1 TPS ≥50%; KEYNOTE-189 used PD-L1 ≥1% or all-comers"
+    },
+    {
+      "id": "el_005",
+      "category": "eligibility",
+      "query": "What renal function requirements are typically used in Phase 3 oncology trials?",
+      "ground_truth_keywords": ["creatinine", "eGFR", "CrCl", "renal function", "clearance"],
+      "notes": "Typically eGFR ≥30-60 mL/min; varies by nephrotoxic drugs"
+    },
+    {
+      "id": "si_001",
+      "category": "site",
+      "query": "Which countries show the fastest enrollment rates for Phase 3 cardiovascular trials?",
+      "ground_truth_keywords": ["United States", "Europe", "Eastern Europe", "enrollment", "rate"],
+      "notes": "Eastern Europe often enrolls faster for CV trials; US has high costs but good patient access"
+    },
+    {
+      "id": "si_002",
+      "category": "site",
+      "query": "How many sites are typically activated in a Phase 3 oncology trial enrolling 600 patients?",
+      "ground_truth_keywords": ["sites", "centers", "enrollment", "Phase 3", "oncology"],
+      "notes": "Typically 80-150 sites for 600 patient Phase 3 oncology trial"
+    },
+    {
+      "id": "si_003",
+      "category": "site",
+      "query": "What is the typical enrollment rate per site per month in Phase 3 oncology trials?",
+      "ground_truth_keywords": ["site", "enrollment rate", "patients", "month", "Phase 3"],
+      "notes": "Typically 0.5-2.0 patients/site/month in oncology Phase 3"
+    },
+    {
+      "id": "si_004",
+      "category": "site",
+      "query": "How many countries participate in a typical Phase 3 immunology clinical trial?",
+      "ground_truth_keywords": ["countries", "international", "immunology", "global", "sites"],
+      "notes": "Large Phase 3 immunology trials often span 20-40 countries"
+    },
+    {
+      "id": "do_001",
+      "category": "dropout",
+      "query": "What dropout rates are typical in 24-month Phase 3 Alzheimer's trials?",
+      "ground_truth_keywords": ["dropout", "withdrawal", "discontinuation", "%", "Alzheimer"],
+      "notes": "Long-duration CNS trials have higher dropout; typically 20-40% in 24-month Alzheimer trials"
+    },
+    {
+      "id": "do_002",
+      "category": "dropout",
+      "query": "What completion rates are typical in Phase 3 rheumatoid arthritis trials with biologic treatment?",
+      "ground_truth_keywords": ["completion", "dropout", "withdrawal", "rheumatoid", "biologic"],
+      "notes": "RA trials with biologics have moderate completion rates; adverse events and lack of efficacy are common reasons"
+    },
+    {
+      "id": "do_003",
+      "category": "dropout",
+      "query": "How does treatment-related adverse events impact dropout rates in Phase 1 oncology trials?",
+      "ground_truth_keywords": ["adverse events", "toxicity", "dropout", "Phase 1", "dose limiting"],
+      "notes": "Phase 1 oncology trials have variable dropout due to safety; dose escalation affects retention"
+    },
+    {
+      "id": "fa_001",
+      "category": "failure",
+      "query": "What are the most common reasons Phase 3 oncology trials are terminated early?",
+      "ground_truth_keywords": ["terminated", "enrollment", "safety", "efficacy", "futility", "business"],
+      "notes": "Enrollment failure, safety signals, and interim futility are top reasons"
+    },
+    {
+      "id": "fa_002",
+      "category": "failure",
+      "query": "What percentage of Phase 3 clinical trials fail to meet their primary endpoint?",
+      "ground_truth_keywords": ["fail", "primary endpoint", "Phase 3", "success rate", "miss"],
+      "notes": "Approximately 40-50% of Phase 3 trials fail to meet primary endpoint"
+    },
+    {
+      "id": "fa_003",
+      "category": "failure",
+      "query": "What are common reasons for protocol amendments in Phase 2-3 oncology trials?",
+      "ground_truth_keywords": ["amendment", "protocol change", "eligibility", "dosing", "endpoint"],
+      "notes": "Eligibility criteria changes, dose modifications, and endpoint revisions are most common"
+    },
+    {
+      "id": "fa_004",
+      "category": "failure",
+      "query": "What design factors predict trial failure in neurodegenerative disease?",
+      "ground_truth_keywords": ["neurodegenerative", "endpoint", "enrollment", "biomarker", "design"],
+      "notes": "Poor endpoint sensitivity, wrong biomarker selection, and late-stage patient populations common"
+    },
+    {
+      "id": "gen_001",
+      "category": "general",
+      "query": "How long do Phase 3 cardiovascular trials typically take from first patient enrolled to primary completion?",
+      "ground_truth_keywords": ["duration", "months", "years", "cardiovascular", "completion"],
+      "notes": "Large Phase 3 CV trials typically take 3-6 years from FPI to primary completion"
+    },
+    {
+      "id": "gen_002",
+      "category": "general",
+      "query": "What percentage of Phase 3 oncology trials achieve their planned enrollment target?",
+      "ground_truth_keywords": ["enrollment", "target", "achieved", "oncology", "Phase 3"],
+      "notes": "Studies suggest 30-40% of trials fail to meet enrollment targets on time"
+    },
+    {
+      "id": "gen_003",
+      "category": "general",
+      "query": "What is the typical trial duration for a Phase 2 immuno-oncology trial?",
+      "ground_truth_keywords": ["duration", "months", "immuno-oncology", "checkpoint", "Phase 2"],
+      "notes": "Phase 2 IO trials typically run 18-36 months depending on endpoint"
+    }
+  ]
+}
